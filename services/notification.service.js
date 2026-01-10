@@ -20,7 +20,35 @@ const createTicketfn = async (data) => {
   }
 }
 
+const getAllfn = async () => {
+  try{
+    const response = await Ticket.find();
+    return response;
+  }catch(error){
+    throw error;
+  }
+}
+
+
+const getTicketBYIdfn = async (id) => {
+  try {
+    const response = await Ticket.findById(id);
+    if(!response){
+      throw {
+        err: "No ticket details found",
+        code: STATUS_CODE.NOT_FOUND
+      }
+    }
+
+    return response;
+  } catch (error) {
+    throw error;
+  }
+}
+
 
 export {
-  createTicketfn
+  createTicketfn,
+  getAllfn,
+  getTicketBYIdfn
 }
