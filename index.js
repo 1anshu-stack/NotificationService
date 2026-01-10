@@ -1,5 +1,6 @@
 import express from "express"
 import 'dotenv/config'
+import { sendMail } from "./services/email.service.js";
 
 
 const app = express();
@@ -19,5 +20,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 app.listen(port || 3001, () => {
-  console.log(`Notification server started at port ${port}`)
+  console.log(`Notification server started at port ${port}`) 
+  sendMail(process.env.EMAIL, process.env.EMAIL_PASS);
 })
