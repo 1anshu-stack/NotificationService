@@ -6,6 +6,8 @@ import { sendMail } from "./services/email.service.js";
 const app = express();
 const port = process.env.PORT;
 
+import TicketRoutes from "./routes/ticket.routes.js"
+
 // db connection
 import connectDB from "./config/db.js";
 import mongoose from 'mongoose';
@@ -19,7 +21,11 @@ mongoose.set('debug', true);
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
+
+TicketRoutes(app)
+
+
 app.listen(port || 3001, () => {
   console.log(`Notification server started at port ${port}`) 
-  sendMail(process.env.EMAIL, process.env.EMAIL_PASS);
+  // sendMail(process.env.EMAIL, process.env.EMAIL_PASS);
 })
