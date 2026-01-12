@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import 'dotenv/config';
 
-const sendMail = (userId, userPass) => {
+const sendMail = (userId, userPass, mailData) => {
   // It to create a transport object, It is a resuable object that have default SMTP configuration.
   const transport = nodemailer.createTransport({
     service: 'Gmail',
@@ -12,10 +12,10 @@ const sendMail = (userId, userPass) => {
   });
 
   transport.sendMail({
-    from: 'mba@support.com',
-    to: 'bhupendrajogi661@gmail.com',
-    subject: 'Test email for nodemailer',
-    text: 'Hey, this is a test Email',
+    from: mailData.from,
+    to: mailData.to,
+    subject: mailData.subject,
+    text: mailData.text,
   });
 };
 

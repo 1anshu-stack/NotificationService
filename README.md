@@ -5,4 +5,6 @@ In our database we are going to have one collection that collection have the det
 
 Cron job: For node we have node-cron. 
 
-APIS: api to submit new notification email request.
+APIS: api to submit new notification email request, get all ticket api and get ticket by particular id.
+
+CRON: 
