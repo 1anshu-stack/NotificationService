@@ -2,6 +2,7 @@ import express from "express"
 import 'dotenv/config'
 import { sendMail } from "./services/email.service.js";
 
+import { mailerCron } from "./crons/cron.js";
 
 const app = express();
 const port = process.env.PORT;
@@ -27,5 +28,5 @@ TicketRoutes(app)
 
 app.listen(port || 3001, () => {
   console.log(`Notification server started at port ${port}`) 
-  // sendMail(process.env.EMAIL, process.env.EMAIL_PASS);
+  mailerCron();
 })
