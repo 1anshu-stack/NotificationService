@@ -22,11 +22,11 @@ const mailerCron = () => {
 
       mailer.sendMail(mailData, async (err, data) => {
         if (err) {
-          console.log(err);
+          console.log("send mail error", err);
         } else {
-          console.log(data);
+          console.log("data to send", data);
           const savedNotification = await Ticket.findById({
-            _id: notificationsToBeSent._id,
+            _id: notification._id,
           });
           savedNotification.status = 'SUCCESS';
           savedNotification.save();
