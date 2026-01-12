@@ -7,4 +7,8 @@ Cron job: For node we have node-cron.
 
 APIS: api to submit new notification email request, get all ticket api and get ticket by particular id.
 
-CRON: 
+CRON: Every 2 min it check in database if status of request is pending it will send the mail to it.
+
+Main service and Notification service communication after successful payment. There are multiple library in node to make an http call("axios, node-rest-client").
+
+ 
